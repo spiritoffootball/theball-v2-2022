@@ -47,13 +47,13 @@ class The_Ball_v2_2022_Geo_Mashup {
 	public $url_path = '';
 
 	/**
-	 * Post Types handled.
+	 * The Organisation Post Types.
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var string $url_path The handled Post Type slugs.
+	 * @var array $organisation_post_types The array of Organisation Post Type slugs.
 	 */
-	public $post_types = [
+	public $organisation_post_types = [
 		'organisation',
 		'partner',
 		'host',
@@ -118,6 +118,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 
 		// Filter Info Window elements.
 		// TODO: override Info Windows completely.
+		add_filter( 'the_ball_v2_2022/info_window/link', [ $this, 'filter_info_window_link' ], 10, 2 );
 		add_filter( 'the_ball_v2_2022/info_window/thumbnail', [ $this, 'filter_info_window_thumbnail' ], 10, 2 );
 		add_filter( 'the_ball_v2_2022/info_window/content', [ $this, 'filter_info_window_excerpt' ], 10, 2 );
 		add_filter( 'the_ball_v2_2022/info_window/more_link', [ $this, 'filter_info_window_read_more' ], 10, 2 );
@@ -238,14 +239,31 @@ class The_Ball_v2_2022_Geo_Mashup {
 			return $json_properties;
 		}
 
-		// Bail if not our "Ball" Post Type.
-		if ( 'ball' !== get_post_type( $post_id ) ) {
-			return $json_properties;
+		// Modify our "Ball" Post Type.
+		if ( 'ball' === get_post_type( $post_id ) ) {
+
+			// Set common propeties.
+			$json_properties['is_ball'] = 1;
+			$json_properties['ball_icon'] = get_stylesheet_directory_uri() . '/assets/images/geo-mashup/ball_72_arrow.png';
+
+			// Set properties unique to The Ball.
+			$ball = get_post( $post_id );
+			if ( 'the-ball-2022-2023' === $ball->post_name ) {
+				$json_properties['is_the_ball'] = 1;
+			}
+
 		}
 
-		// Add an identifier.
-		$json_properties['is_ball'] = 1;
-		$json_properties['ball_icon'] = get_stylesheet_directory_uri() . '/assets/images/geo-mashup/mm_ball_72_arrow.png';
+		// Modify our "Partner" Post Type.
+		if ( 'partner' === get_post_type( $post_id ) ) {
+			$json_properties['is_partner'] = 1;
+		}
+
+		// Modify our "Ball Host" Post Type.
+		if ( 'host' === get_post_type( $post_id ) ) {
+			$json_properties['is_host'] = 1;
+			$json_properties['host_icon'] = get_stylesheet_directory_uri() . '/assets/images/geo-mashup/host_36_white.png';
+		}
 
 		/*
 		$e = new \Exception();
@@ -278,6 +296,32 @@ class The_Ball_v2_2022_Geo_Mashup {
 	// -------------------------------------------------------------------------
 
 	/**
+	 * Filters the link to the Post in the Map Info Window.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param bool $show True if linking to the Post.
+	 * @param int $post_id The numeric ID of the WordPress Post.
+	 * @return bool $showTrue if linking to the Post, false to hide.
+	 */
+	public function filter_info_window_link( $show, $post_id ) {
+
+		// Show if one of our Organisation Post Types.
+		if ( in_array( get_post_type( $post_id ), $this->organisation_post_types, true ) ) {
+			$show = true;
+		}
+
+		// Never show for Balls.
+		if ( 'ball' === get_post_type( $post_id ) ) {
+			$show = false;
+		}
+
+		// --<
+		return $show;
+
+	}
+
+	/**
 	 * Filters the feature image data for the Map Info Window.
 	 *
 	 * @since 1.0.0
@@ -300,32 +344,32 @@ class The_Ball_v2_2022_Geo_Mashup {
 		], true ) );
 		*/
 
-		// Bail if not one of the Post Types we handle.
-		if ( ! in_array( get_post_type( $post_id ), $this->post_types, true ) ) {
-			return $feature_image;
-		}
+		// If one of our Organisation Post Types.
+		if ( in_array( get_post_type( $post_id ), $this->organisation_post_types, true ) ) {
 
-		// Get the logo for Organisations.
-		$logo = get_field( 'logo', $post_id );
+			// Get the logo for Organisations.
+			$logo = get_field( 'logo', $post_id );
 
-		/*
-		$e = new \Exception();
-		$trace = $e->getTraceAsString();
-		error_log( print_r( [
-			'method' => __METHOD__,
-			'logo' => $logo,
-			//'backtrace' => $trace,
-		], true ) );
-		*/
+			/*
+			$e = new \Exception();
+			$trace = $e->getTraceAsString();
+			error_log( print_r( [
+				'method' => __METHOD__,
+				'logo' => $logo,
+				//'backtrace' => $trace,
+			], true ) );
+			*/
 
-		if ( ! empty( $logo ) ) {
-			$feature_image['exists'] = true;
-			$feature_image['class'] = ' has_feature_image';
-			$feature_image['thumbnail'] = sprintf( '<img src="%1$s" width="%2$s" height="%3$s">',
-				$logo['sizes']['medium'],
-				( $logo['sizes']['medium-width'] / 2 ),
-				( $logo['sizes']['medium-height'] / 2 )
-			);
+			if ( ! empty( $logo ) ) {
+				$feature_image['exists'] = true;
+				$feature_image['class'] = ' has_feature_image';
+				$feature_image['thumbnail'] = sprintf( '<img src="%1$s" width="%2$s" height="%3$s">',
+					$logo['sizes']['medium'],
+					( $logo['sizes']['medium-width'] / 2 ),
+					( $logo['sizes']['medium-height'] / 2 )
+				);
+			}
+
 		}
 
 		/*
@@ -354,13 +398,15 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 */
 	public function filter_info_window_excerpt( $excerpt, $post_id ) {
 
-		// Bail if not one of the Post Types we handle.
-		if ( ! in_array( get_post_type( $post_id ), $this->post_types, true ) ) {
-			return $excerpt;
+		// Use a stripped out version of the ACF Field for Organisations.
+		if ( in_array( get_post_type( $post_id ), $this->organisation_post_types, true ) ) {
+			$excerpt = wp_strip_all_tags( get_field( 'about', $post_id ) );
 		}
 
-		// Use a stripped out version of the ACF Field.
-		$excerpt = wp_strip_all_tags( get_field( 'about', $post_id ) );
+		// Show stripped out version of the content for The Ball.
+		if ( 'ball' === get_post_type( $post_id ) ) {
+			$excerpt = wp_strip_all_tags( get_the_content( $post_id ) );
+		}
 
 		// --<
 		return $excerpt;
@@ -378,13 +424,17 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 */
 	public function filter_info_window_read_more( $show, $post_id ) {
 
-		// Bail if not one of the Post Types we handle.
-		if ( ! in_array( get_post_type( $post_id ), $this->post_types, true ) ) {
-			return $show;
+		// Never show for Organisations.
+		if ( in_array( get_post_type( $post_id ), $this->organisation_post_types, true ) ) {
+			$show = false;
 		}
 
-		// Never show for Ball Hosts.
-		return false;
+		// Never show for The Ball.
+		if ( 'ball' === get_post_type( $post_id ) ) {
+			$show = false;
+		}
+
+		return $show;
 
 	}
 

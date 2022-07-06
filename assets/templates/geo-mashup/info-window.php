@@ -61,6 +61,26 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 			 */
 			$feature_image = apply_filters( 'the_ball_v2_2022/info_window/thumbnail', $feature_image, get_the_ID() );
 
+			/**
+			 * Filters the links to the Post.
+			 *
+			 * @since 1.0
+			 *
+			 * @param bool $show True if showing links to the Post.
+			 * @param int $post_id The numeric ID of the WordPress Post.
+			 */
+			$show_link = apply_filters( 'the_ball_v2_2022/info_window/link', true, get_the_ID() );
+
+			/**
+			 * Filters the "Read More" link.
+			 *
+			 * @since 1.0
+			 *
+			 * @param bool $show True if showing the "Read More" link.
+			 * @param int $post_id The numeric ID of the WordPress Post.
+			 */
+			$more_link = apply_filters( 'the_ball_v2_2022/info_window/more_link', true, get_the_ID() );
+
 			/*
 			$e = new \Exception();
 			$trace = $e->getTraceAsString();
@@ -82,13 +102,25 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 				<div class="post_header">
 
 					<?php if ( true === $feature_image['exists'] ) : ?>
-						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="feature-link">
-							<?php echo $feature_image['thumbnail']; ?>
-						</a>
+						<?php if ( true === $show_link ) : ?>
+							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="feature-link">
+						<?php endif; ?>
+						<?php echo $feature_image['thumbnail']; ?>
+						<?php if ( true === $show_link ) : ?>
+							</a>
+						<?php endif; ?>
 					<?php endif; ?>
 
 					<div class="post_header_text">
-						<h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+						<h2>
+						<?php if ( true === $show_link ) : ?>
+							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+						<?php endif; ?>
+						<?php the_title(); ?>
+						<?php if ( true === $show_link ) : ?>
+							</a>
+						<?php endif; ?>
+						</h2>
 					</div><!-- /.post_header_text -->
 
 				</div><!-- /.post_header -->
@@ -108,7 +140,7 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 
 							?>
 							</p>
-							<?php if ( apply_filters( 'the_ball_v2_2022/info_window/more_link', true, get_the_ID() ) ) : ?>
+							<?php if ( true === $more_link ) : ?>
 								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link"><?php esc_html_e( 'Read more', 'the-ball-v2-2022' ); ?></a>
 							<?php endif; ?>
 						</div>
@@ -117,7 +149,7 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 
 						<?php if ( false === $feature_image['exists'] ) : ?>
 							<div class="storycontent">
-								<?php if ( apply_filters( 'the_ball_v2_2022/info_window/more_link', true, get_the_ID() ) ) : ?>
+								<?php if ( true === $more_link ) : ?>
 									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link"><?php esc_html_e( 'Read more', 'the-ball-v2-2022' ); ?></a>
 								<?php endif; ?>
 							</div>

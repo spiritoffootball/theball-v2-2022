@@ -16,24 +16,68 @@
  */
 GeoMashup.addAction( 'objectIcon', function( properties, object ) {
 
-	/*
+	///*
 	console.log( 'OBJECT ICON' );
 	console.log( 'properties', properties );
 	console.log( 'object', object );
-	*/
+	//*/
 
-	// Use a custom icon when the custom var is set.
+	// Use a custom icon for "Ball" Post Type.
 	if ( object.is_ball == 1 ) {
 
-		/*
-		console.log( 'CUSTOM ICON' );
-		console.log( 'marker', object.marker );
-		console.log( 'terms', object.terms );
-		*/
+		///*
+		console.log( 'CUSTOM BALL ICON' );
+		//*/
 
 		object.icon.image = object.ball_icon;
-		object.icon.iconSize = [ 60, 72 ];
-		object.icon.iconAnchor = [ 30, 72 ];
+
+		// Use a custom icon size for "The Ball" itself.
+		if ( object.is_the_ball == 1 ) {
+			object.icon.iconSize = [ 60, 72 ];
+			object.icon.iconAnchor = [ 30, 72 ];
+		} else {
+			object.icon.iconSize = [ 50, 60 ];
+			object.icon.iconAnchor = [ 50, 60 ];
+		}
+
+		// Save Icon for later.
+		properties.ball_icon = object.ball_icon;
+
+		///*
+		console.log( 'properties-AFTER', properties );
+		console.log( 'object-AFTER', object );
+		//*/
+
+	}
+
+	// Use a custom icon for "Partner" Post Type.
+	if ( object.is_partner == 1 ) {
+
+		///*
+		console.log( 'CUSTOM PARTNER ICON' );
+		//*/
+
+		object.icon.image = properties.url_path + '/images/mm_36_navy.png';
+
+		/*
+		console.log( 'object-AFTER', object );
+		*/
+
+	}
+
+	// Use a custom icon for "Host" Post Type.
+	if ( object.is_host == 1 ) {
+
+		///*
+		console.log( 'CUSTOM BALL HOST ICON' );
+		//*/
+
+		//object.icon.image = properties.url_path + '/images/mm_36_orange.png';
+		object.icon.image = object.host_icon;
+
+		/*
+		console.log( 'object-AFTER', object );
+		*/
 
 	}
 
@@ -49,14 +93,15 @@ GeoMashup.addAction( 'objectIcon', function( properties, object ) {
  */
 GeoMashup.addAction( 'marker', function( options, marker ) {
 
-	/*
+	///*
 	console.log( 'MARKER CREATE' );
+	console.log( 'options', options );
 	console.log( 'marker', marker );
-	*/
+	//*/
 
 	// Only Ball icons are 72px tall.
 	if ( marker.iconSize.length && marker.iconSize[1] === 72 ) {
-		marker.click.removeAllHandlers();
+		//marker.click.removeAllHandlers();
 	}
 
 } );
@@ -71,11 +116,30 @@ GeoMashup.addAction( 'marker', function( options, marker ) {
  */
 GeoMashup.addAction( 'multiObjectMarker', function( options, marker ) {
 
-	/*
+	///*
 	console.log( 'MULTI OBJECT MARKER CREATE' );
 	console.log( 'options', options );
 	console.log( 'marker', marker );
-	*/
+	//*/
+
+	// Only Ball icons are 72px tall.
+	if ( marker.iconSize.length && marker.iconSize[1] === 72 ) {
+
+		//marker.click.removeAllHandlers();
+		marker.iconUrl = options.ball_icon;
+
+		/*
+		marker.click.addHandler( function() {
+			// Toggle marker selection
+			if ( marker === GeoMashup.selected_marker ) {
+				GeoMashup.deselectMarker();
+			} else {
+				GeoMashup.selectMarker( marker );
+			}
+		} );
+		*/
+
+	}
 
 } );
 
