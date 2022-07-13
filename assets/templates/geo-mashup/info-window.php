@@ -126,8 +126,6 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 				</div><!-- /.post_header -->
 
 				<?php if ( apply_filters( 'the_ball_v2_2022/info_window/content', true, get_the_ID() ) ) : ?>
-					<?php if ( $wp_query->post_count == 1 ) : ?>
-
 						<div class="storycontent">
 							<p>
 							<?php
@@ -144,18 +142,6 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link"><?php esc_html_e( 'Read more', 'the-ball-v2-2022' ); ?></a>
 							<?php endif; ?>
 						</div>
-
-					<?php else : ?>
-
-						<?php if ( false === $feature_image['exists'] ) : ?>
-							<div class="storycontent">
-								<?php if ( true === $more_link ) : ?>
-									<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link"><?php esc_html_e( 'Read more', 'the-ball-v2-2022' ); ?></a>
-								<?php endif; ?>
-							</div>
-						<?php endif; ?>
-
-					<?php endif; ?>
 				<?php endif; ?>
 
 			</div><!-- /.location-post -->
