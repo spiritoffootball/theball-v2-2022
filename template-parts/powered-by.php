@@ -28,6 +28,15 @@ $partners_args = [
 // Do the query.
 $partners = new WP_Query( $partners_args );
 
+		$e = new \Exception;
+		$trace = $e->getTraceAsString();
+		error_log( print_r( [
+		  'method' => __METHOD__,
+		  'partners_args' => $partners_args,
+		  'partners' => $partners,
+		  //'backtrace' => $trace,
+		], true ) );
+
 if ( $partners->have_posts() ) :
 	?>
 
@@ -47,7 +56,7 @@ if ( $partners->have_posts() ) :
 				$partners->the_post();
 
 				// Get mini template.
-				get_template_part( 'template-parts/content-organisation-logos' );
+				get_template_part( 'template-parts/content-organisation-logo' );
 
 			endwhile;
 
