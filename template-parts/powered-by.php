@@ -28,15 +28,6 @@ $partners_args = [
 // Do the query.
 $partners = new WP_Query( $partners_args );
 
-		$e = new \Exception;
-		$trace = $e->getTraceAsString();
-		error_log( print_r( [
-		  'method' => __METHOD__,
-		  'partners_args' => $partners_args,
-		  'partners' => $partners,
-		  //'backtrace' => $trace,
-		], true ) );
-
 if ( $partners->have_posts() ) :
 	?>
 

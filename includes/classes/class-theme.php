@@ -27,6 +27,15 @@ class The_Ball_v2_2022_Theme {
 	public $geo_mashup;
 
 	/**
+	 * The Ball 2022-2023 Shortcode.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var object $shortcode_the_ball The Ball 2022-2023 Shortcode object.
+	 */
+	public $shortcode_the_ball;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 1.0.0
@@ -78,6 +87,7 @@ class The_Ball_v2_2022_Theme {
 
 		// Include class files.
 		include get_stylesheet_directory() . '/includes/classes/class-geo-mashup.php';
+		include get_stylesheet_directory() . '/includes/classes/class-shortcode-the-ball.php';
 
 		/*
 		// Include functions files.
@@ -104,6 +114,7 @@ class The_Ball_v2_2022_Theme {
 
 		// Instantiate classes.
 		$this->geo_mashup = new The_Ball_v2_2022_Geo_Mashup( $this );
+		$this->shortcode_the_ball = new The_Ball_v2_2022_Theme_Shortcode_The_Ball( $this );
 
 		// We're done.
 		$done = true;
@@ -116,6 +127,27 @@ class The_Ball_v2_2022_Theme {
 	 * @since 1.0.0
 	 */
 	public function register_hooks() {
+
+		// Set up this theme's defaults.
+		add_action( 'after_setup_theme', [ $this, 'theme_setup' ] );
+
+	}
+
+	/**
+	 * Augment the Base Theme's setup function.
+	 *
+	 * @since 1.0.0
+	 */
+	public function theme_setup() {
+
+		/*
+		 * Make theme available for translation.
+		 * Translations can be added to the /languages/ directory of the child theme.
+		 */
+		load_child_theme_textdomain(
+			'the-ball-v2-2022',
+			get_stylesheet_directory() . '/languages'
+		);
 
 	}
 
