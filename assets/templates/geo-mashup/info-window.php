@@ -11,13 +11,17 @@
  * @package The_Ball_v2_2022
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 // Modify the Post Thumbnail size.
 add_filter( 'post_thumbnail_size', [ 'GeoMashupQuery', 'post_thumbnail_size' ] );
 
 // A potentially heavy-handed way to remove shortcode-like content.
 add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 
-?><!-- assets/templates/geo-mashup/info-window.php -->
+?>
+<!-- assets/templates/geo-mashup/info-window.php -->
 
 <div class="locationinfo post-location-info">
 

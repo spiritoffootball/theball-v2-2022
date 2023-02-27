@@ -10,7 +10,11 @@
  * @package The_Ball_v2_2022
  */
 
-?><!-- assets/templates/geo-mashup/full-post.php -->
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
+?>
+<!-- assets/templates/geo-mashup/full-post.php -->
 
 <?php if ( have_posts() ) : ?>
 
