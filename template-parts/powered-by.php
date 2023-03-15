@@ -38,9 +38,6 @@ if ( $partners->have_posts() ) :
 
 			<?php
 
-			// Init counter for giving items classes.
-			$post_loop_counter = new The_Ball_v2_Counter();
-
 			// Start the loop.
 			while ( $partners->have_posts() ) :
 
@@ -51,18 +48,12 @@ if ( $partners->have_posts() ) :
 
 			endwhile;
 
-			// Ditch counter.
-			$post_loop_counter->remove_filter();
-			unset( $post_loop_counter );
-
 			?>
 
 		</div>
 	</section><!-- .partner-list -->
 
 	<?php
-
-	the_posts_navigation();
 
 else :
 
