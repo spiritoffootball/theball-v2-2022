@@ -20,11 +20,20 @@ defined( 'ABSPATH' ) || exit;
 class The_Ball_v2_2022_Theme_Shortcode_The_Ball {
 
 	/**
+	 * Theme object.
+	 *
+	 * @since 1.0.0
+	 * @access public
+	 * @var The_Ball_v2_2022_Theme
+	 */
+	public $theme;
+
+	/**
 	 * Shortcode name.
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var string $tag The Shortcode name.
+	 * @var string
 	 */
 	public $tag = 'sof_the_ball_event_teaser';
 

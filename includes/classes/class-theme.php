@@ -22,16 +22,16 @@ class The_Ball_v2_2022_Theme {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var object $geo_mashup The Geo Mashup compatibility object.
+	 * @var The_Ball_v2_2022_Geo_Mashup
 	 */
 	public $geo_mashup;
 
 	/**
-	 * The Ball 2022-2023 Shortcode.
+	 * The Ball 2022-2023 Shortcode object.
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var object $shortcode_the_ball The Ball 2022-2023 Shortcode object.
+	 * @var The_Ball_v2_2022_Theme_Shortcode_The_Ball
 	 */
 	public $shortcode_the_ball;
 

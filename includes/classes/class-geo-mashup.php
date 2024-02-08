@@ -24,7 +24,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var object $theme The theme object.
+	 * @var The_Ball_v2_2022_Theme
 	 */
 	public $theme;
 
@@ -33,7 +33,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var string $dir_path The Geo Mashup template directory path.
+	 * @var string
 	 */
 	public $dir_path = '';
 
@@ -42,7 +42,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var string $url_path The Geo Mashup template directory URL.
+	 * @var string
 	 */
 	public $url_path = '';
 
@@ -51,7 +51,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 * @access public
-	 * @var array $organisation_post_types The array of Organisation Post Type slugs.
+	 * @var array
 	 */
 	public $organisation_post_types = [
 		'organisation',
