@@ -12,16 +12,16 @@ defined( 'ABSPATH' ) || exit;
 
 // Define query args.
 $partners_args = [
-	'post_type' => 'partner',
+	'post_type'   => 'partner',
 	'post_status' => 'publish',
-	'order' => 'ASC',
-	'orderby' => 'title',
+	'order'       => 'ASC',
+	'orderby'     => 'title',
 	// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-	'tax_query' => [
+	'tax_query'   => [
 		[
 			'taxonomy' => 'partner-type',
-			'field' => 'slug',
-			'terms' => 'powered-by',
+			'field'    => 'slug',
+			'terms'    => 'powered-by',
 		],
 	],
 ];

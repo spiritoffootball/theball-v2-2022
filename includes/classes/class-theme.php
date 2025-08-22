@@ -113,7 +113,7 @@ class The_Ball_v2_2022_Theme {
 		}
 
 		// Instantiate classes.
-		$this->geo_mashup = new The_Ball_v2_2022_Geo_Mashup( $this );
+		$this->geo_mashup         = new The_Ball_v2_2022_Geo_Mashup( $this );
 		$this->shortcode_the_ball = new The_Ball_v2_2022_Theme_Shortcode_The_Ball( $this );
 
 		// We're done.

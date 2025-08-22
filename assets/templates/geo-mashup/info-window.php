@@ -43,15 +43,15 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 
 			// Init feature image array.
 			$feature_image = [
-				'exists' => false,
-				'class' => '',
+				'exists'    => false,
+				'class'     => '',
 				'thumbnail' => '',
 			];
 
 			// Maybe fill out array with values.
 			if ( has_post_thumbnail() ) {
-				$feature_image['exists'] = true;
-				$feature_image['class'] = ' has_feature_image';
+				$feature_image['exists']    = true;
+				$feature_image['class']     = ' has_feature_image';
 				$feature_image['thumbnail'] = get_the_post_thumbnail( get_the_ID(), 'medium' );
 			}
 

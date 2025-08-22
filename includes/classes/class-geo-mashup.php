@@ -367,7 +367,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 		if ( 'ball' === get_post_type( $post_id ) ) {
 
 			// Set common propeties.
-			$json_properties['is_ball'] = 1;
+			$json_properties['is_ball']   = 1;
 			$json_properties['ball_icon'] = get_stylesheet_directory_uri() . '/assets/images/geo-mashup/ball_72_arrow.png';
 
 			// Set properties unique to The Ball.
@@ -385,7 +385,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 
 		// Modify our "Ball Host" Post Type.
 		if ( 'host' === get_post_type( $post_id ) ) {
-			$json_properties['is_host'] = 1;
+			$json_properties['is_host']   = 1;
 			$json_properties['host_icon'] = get_stylesheet_directory_uri() . '/assets/images/geo-mashup/host_36_white.png';
 		}
 
@@ -490,8 +490,8 @@ class The_Ball_v2_2022_Geo_Mashup {
 			*/
 
 			if ( ! empty( $logo ) ) {
-				$feature_image['exists'] = true;
-				$feature_image['class'] = ' has_feature_image';
+				$feature_image['exists']    = true;
+				$feature_image['class']     = ' has_feature_image';
 				$feature_image['thumbnail'] = sprintf( '<img src="%1$s" width="%2$s" height="%3$s">',
 					$logo['sizes']['medium'],
 					( $logo['sizes']['medium-width'] / 2 ),

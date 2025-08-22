@@ -15,10 +15,10 @@ $sof_the_ball_event = false;
 
 // Define query args.
 $the_ball_event_args = [
-	'post_type' => 'event',
-	'post_status' => 'publish',
+	'post_type'     => 'event',
+	'post_status'   => 'publish',
 	'no_found_rows' => true,
-	'post__in' => [ 1014 ],
+	'post__in'      => [ 1014 ],
 ];
 
 // The query.
