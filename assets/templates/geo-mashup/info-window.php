@@ -101,7 +101,7 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 
 			?>
 
-			<div class="location-post<?php echo $multiple_items_class . $feature_image['class'] . $post_type_class; ?>">
+			<div class="location-post<?php echo esc_attr( $multiple_items_class . $feature_image['class'] . $post_type_class ); ?>">
 
 				<div class="post_header">
 
@@ -109,7 +109,7 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 						<?php if ( true === $show_link ) : ?>
 							<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="feature-link">
 						<?php endif; ?>
-						<?php echo $feature_image['thumbnail']; ?>
+						<?php echo $feature_image['thumbnail']; /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>
 						<?php if ( true === $show_link ) : ?>
 							</a>
 						<?php endif; ?>
@@ -134,11 +134,20 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 							<p>
 							<?php
 
-							echo apply_filters(
-								'the_ball_v2_2022/info_window/content',
-								wp_strip_all_tags( get_the_excerpt() ),
-								get_the_ID()
-							);
+							/**
+							 * Filters the content of the info window.
+							 *
+							 * Make sure escaped content is returned.
+							 *
+							 * @since 1.0.0
+							 *
+							 * @param string The Post excerpt.
+							 * @param int    The ID of the Post.
+							 */
+							$info_window_content = apply_filters( 'the_ball_v2_2022/info_window/content', wp_strip_all_tags( get_the_excerpt() ), get_the_ID() );
+
+							// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo $info_window_content;
 
 							?>
 							</p>

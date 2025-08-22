@@ -45,14 +45,16 @@ defined( 'ABSPATH' ) || exit;
 				<div class="footer-menu">
 					<?php
 
-					wp_nav_menu( [
+					$args = [
 						'theme_location' => 'footer',
 						'menu_class'     => 'the-ball-v2-2022-footer',
 						'link_before'    => '<span>',
 						'link_after'     => '</span>',
 						'fallback_cb'    => '',
 						'depth'          => 1,
-					] );
+					];
+
+					wp_nav_menu( $args );
 
 					?>
 				</div><!-- .footer-menu -->
@@ -80,13 +82,14 @@ defined( 'ABSPATH' ) || exit;
 
 			</div><!-- /sof_network_white -->
 
-			<?php if ( $powered_by_loop = locate_template( 'template-parts/powered-by.php' ) ) : ?>
+			<?php $powered_by_loop = locate_template( 'template-parts/powered-by.php' ); ?>
+			<?php if ( $powered_by_loop ) : ?>
 				<?php load_template( $powered_by_loop ); ?>
 			<?php endif; ?>
 
 			<div class="site-info">
 				<?php /* translators: 1: The opening anchor tag, 2: The closing anchor tag, 3: The current year. */ ?>
-				<p><?php printf( __( 'Website content &copy; %1$sSpirit of Football%2$s %3$s. All rights reserved.', 'the-ball-v2-2022' ), '<a href="https://spiritoffootball.com">', '</a>', gmdate( 'Y' ) ); ?></p>
+				<p><?php printf( esc_html__( 'Website content &copy; %1$sSpirit of Football%2$s %3$s. All rights reserved.', 'the-ball-v2-2022' ), '<a href="https://spiritoffootball.com">', '</a>', esc_html( gmdate( 'Y' ) ) ); ?></p>
 			</div><!-- .site-info -->
 
 		</div><!-- .footer-inner -->

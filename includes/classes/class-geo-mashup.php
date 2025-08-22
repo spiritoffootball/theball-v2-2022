@@ -115,7 +115,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 
 		// Filter the Geo Mashup query.
 		// phpcs:ignore Squiz.Commenting.InlineComment.InvalidEndChar
-		//add_filter( 'geo_mashup_locations_where', [ $this, 'filter_locations_where' ], 10, 2 );
+		// add_filter( 'geo_mashup_locations_where', [ $this, 'filter_locations_where' ], 10, 2 );
 		add_filter( 'geo_mashup_locations_groupby', [ $this, 'filter_locations_groupby' ], 10, 2 );
 		add_filter( 'geo_mashup_locations_orderby', [ $this, 'filter_locations_orderby' ], 10, 2 );
 
@@ -492,7 +492,8 @@ class The_Ball_v2_2022_Geo_Mashup {
 			if ( ! empty( $logo ) ) {
 				$feature_image['exists']    = true;
 				$feature_image['class']     = ' has_feature_image';
-				$feature_image['thumbnail'] = sprintf( '<img src="%1$s" width="%2$s" height="%3$s">',
+				$feature_image['thumbnail'] = sprintf(
+					'<img src="%1$s" width="%2$s" height="%3$s">',
 					$logo['sizes']['medium'],
 					( $logo['sizes']['medium-width'] / 2 ),
 					( $logo['sizes']['medium-height'] / 2 )
