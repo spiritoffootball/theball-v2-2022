@@ -1,13 +1,20 @@
-/*
---------------------------------------------------------------------------------
-Theme Name: The Ball v2 2022 Child Theme
-Theme URI: https://theball.tv/2022/
-Description: A child theme of The Ball v2 for The Ball 2022.
-Version: 1.0.0
-Template: theball-v2
-Author: Christian Wach
-Author URI: https://www.haystack.co.uk
---------------------------------------------------------------------------------
-*/
+/**
+ * The Ball v2 2022 Child Theme
+ *
+ * Theme Name:        The Ball v2 2022 Child Theme
+ * Description:       A child theme of The Ball v2 for The Ball 2022.
+ * Version:           1.0.0
+ * Theme URI:         https://github.com/spiritoffootball/theball-v2-2022
+ * Template:          theball-v2
+ * Author:            Christian Wach
+ * Author URI:        https://www.haystack.co.uk
+ * Requires at least: 5.0
+ * Tested up to:      6.8
+ * Requires PHP:      7.4
+ * License:           GNU General Public License v2 or later
+ * License URI:       https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ *
+ * @package The_Ball_v2_2022
+ */
 
-/* deliberately empty: see 'functions.php' for how styles and scripts are enqueued */
+/* Deliberately empty: see 'functions.php' for how styles and scripts are enqueued. */
