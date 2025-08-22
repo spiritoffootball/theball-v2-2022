@@ -71,7 +71,7 @@ defined( 'ABSPATH' ) || exit;
 					<h3><?php esc_html_e( 'The SOF Network', 'the-ball-v2' ); ?></h3>
 
 					<ul>
-						<li class="brazil_icon"><a href="#" title="<?php esc_attr_e( 'Spirit of Football Brazil', 'the-ball-v2' ); ?>"><?php esc_html_e( 'Spirit of Football Brazil', 'the-ball-v2' ); ?></a></li>
+						<li class="brazil_icon"><a href="https://br.spiritoffootball.com/" title="<?php esc_attr_e( 'Spirit of Football Brazil', 'the-ball-v2' ); ?>"><?php esc_html_e( 'Spirit of Football Brazil', 'the-ball-v2' ); ?></a></li>
 						<li class="cic_icon"><a href="https://spiritoffootball.com/" title="<?php esc_attr_e( 'Spirit of Football CIC', 'the-ball-v2' ); ?>"><?php esc_html_e( 'Spirit of Football CIC', 'the-ball-v2' ); ?></a></li>
 						<li class="sof_network_last germany_icon"><a href="https://spirit-of-football.de/" title="<?php esc_attr_e( 'Spirit of Football Germany', 'the-ball-v2' ); ?>"><?php esc_html_e( 'Spirit of Football Germany', 'the-ball-v2' ); ?></a></li>
 					</ul>
