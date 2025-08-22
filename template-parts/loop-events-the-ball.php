@@ -34,7 +34,7 @@ if ( $the_ball_event->have_posts() ) :
 	<section id="event-the-ball" class="content-area insert-area event-the-ball clear">
 
 		<header class="events-header">
-			<!--<h2 class="events-title"><?php esc_html_e( 'Make your pledge with The Ball', 'the-ball-v2' ); ?></h2>-->
+			<!--<h2 class="events-title"><?php esc_html_e( 'Make your pledge with The Ball', 'the-ball-v2-2022' ); ?></h2>-->
 		</header><!-- .events-header -->
 
 		<?php

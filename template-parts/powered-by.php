@@ -16,6 +16,7 @@ $partners_args = [
 	'post_status' => 'publish',
 	'order' => 'ASC',
 	'orderby' => 'title',
+	// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 	'tax_query' => [
 		[
 			'taxonomy' => 'partner-type',
@@ -34,7 +35,7 @@ if ( $partners->have_posts() ) :
 	<section class="organisation-list partner-list powered-by clear">
 		<div class="organisation-list-inner partner-list-inner">
 
-			<p><?php esc_html_e( 'The Ball 2022 to 2023 is powered by', 'the-ball-v2' ); ?></p>
+			<p><?php esc_html_e( 'The Ball 2022 to 2023 is powered by', 'the-ball-v2-2022' ); ?></p>
 
 			<?php
 

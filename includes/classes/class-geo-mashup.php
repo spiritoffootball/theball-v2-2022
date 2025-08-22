@@ -114,6 +114,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 		add_filter( 'wpcv_eo_maps/geo_mashup_custom/file_url', [ $this, 'filter_file_url' ], 10, 3 );
 
 		// Filter the Geo Mashup query.
+		// phpcs:ignore Squiz.Commenting.InlineComment.InvalidEndChar
 		//add_filter( 'geo_mashup_locations_where', [ $this, 'filter_locations_where' ], 10, 2 );
 		add_filter( 'geo_mashup_locations_groupby', [ $this, 'filter_locations_groupby' ], 10, 2 );
 		add_filter( 'geo_mashup_locations_orderby', [ $this, 'filter_locations_orderby' ], 10, 2 );
@@ -232,15 +233,17 @@ class The_Ball_v2_2022_Geo_Mashup {
 	public function filter_locations_where( $where, $query_args ) {
 
 		// Only filter main map.
-		if ( empty( $query_args['map_post_type'] ) || ! is_array( $query_args['map_post_type'] )  ) {
+		if ( empty( $query_args['map_post_type'] ) || ! is_array( $query_args['map_post_type'] ) ) {
 			return $where;
 		}
 		if ( count( $query_args['map_post_type'] ) !== 4 ) {
 			return $where;
 		}
 
+		/*
 		// We can conveniently sort by Post Type name.
-		//$where .= 'AND o.pos';
+		$where .= 'AND o.pos';
+		*/
 
 		/*
 		$e = new \Exception();
@@ -270,7 +273,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	public function filter_locations_groupby( $groupby, $query_args ) {
 
 		// Only filter main map.
-		if ( empty( $query_args['map_post_type'] ) || ! is_array( $query_args['map_post_type'] )  ) {
+		if ( empty( $query_args['map_post_type'] ) || ! is_array( $query_args['map_post_type'] ) ) {
 			return $groupby;
 		}
 		if ( count( $query_args['map_post_type'] ) !== 4 ) {
@@ -308,7 +311,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	public function filter_locations_orderby( $sort, $query_args ) {
 
 		// Only filter main map.
-		if ( empty( $query_args['map_post_type'] ) || ! is_array( $query_args['map_post_type'] )  ) {
+		if ( empty( $query_args['map_post_type'] ) || ! is_array( $query_args['map_post_type'] ) ) {
 			return $sort;
 		}
 		if ( count( $query_args['map_post_type'] ) !== 4 ) {

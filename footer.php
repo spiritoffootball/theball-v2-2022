@@ -47,7 +47,7 @@ defined( 'ABSPATH' ) || exit;
 
 					wp_nav_menu( [
 						'theme_location' => 'footer',
-						'menu_class'     => 'the-ball-v2-footer',
+						'menu_class'     => 'the-ball-v2-2022-footer',
 						'link_before'    => '<span>',
 						'link_after'     => '</span>',
 						'fallback_cb'    => '',
@@ -68,12 +68,12 @@ defined( 'ABSPATH' ) || exit;
 
 				<div class="network_inner clearfix">
 
-					<h3><?php esc_html_e( 'The SOF Network', 'the-ball-v2' ); ?></h3>
+					<h3><?php esc_html_e( 'The SOF Network', 'the-ball-v2-2022' ); ?></h3>
 
 					<ul>
-						<li class="brazil_icon"><a href="https://br.spiritoffootball.com/" title="<?php esc_attr_e( 'Spirit of Football Brazil', 'the-ball-v2' ); ?>"><?php esc_html_e( 'Spirit of Football Brazil', 'the-ball-v2' ); ?></a></li>
-						<li class="cic_icon"><a href="https://spiritoffootball.com/" title="<?php esc_attr_e( 'Spirit of Football CIC', 'the-ball-v2' ); ?>"><?php esc_html_e( 'Spirit of Football CIC', 'the-ball-v2' ); ?></a></li>
-						<li class="sof_network_last germany_icon"><a href="https://spirit-of-football.de/" title="<?php esc_attr_e( 'Spirit of Football Germany', 'the-ball-v2' ); ?>"><?php esc_html_e( 'Spirit of Football Germany', 'the-ball-v2' ); ?></a></li>
+						<li class="brazil_icon"><a href="https://br.spiritoffootball.com/" title="<?php esc_attr_e( 'Spirit of Football Brazil', 'the-ball-v2-2022' ); ?>"><?php esc_html_e( 'Spirit of Football Brazil', 'the-ball-v2-2022' ); ?></a></li>
+						<li class="cic_icon"><a href="https://spiritoffootball.com/" title="<?php esc_attr_e( 'Spirit of Football CIC', 'the-ball-v2-2022' ); ?>"><?php esc_html_e( 'Spirit of Football CIC', 'the-ball-v2-2022' ); ?></a></li>
+						<li class="sof_network_last germany_icon"><a href="https://spirit-of-football.de/" title="<?php esc_attr_e( 'Spirit of Football Germany', 'the-ball-v2-2022' ); ?>"><?php esc_html_e( 'Spirit of Football Germany', 'the-ball-v2-2022' ); ?></a></li>
 					</ul>
 
 				</div><!-- /network_inner -->
@@ -85,7 +85,8 @@ defined( 'ABSPATH' ) || exit;
 			<?php endif; ?>
 
 			<div class="site-info">
-				<p><?php printf( __( 'Website content &copy; %1$s %2$s. All rights reserved.', 'the-ball-v2' ), '<a href="https://spiritoffootball.com">Spirit of Football</a>', gmdate( 'Y' ) ); ?></p>
+				<?php /* translators: 1: The opening anchor tag, 2: The closing anchor tag, 3: The current year. */ ?>
+				<p><?php printf( __( 'Website content &copy; %1$sSpirit of Football%2$s %3$s. All rights reserved.', 'the-ball-v2-2022' ), '<a href="https://spiritoffootball.com">', '</a>', gmdate( 'Y' ) ); ?></p>
 			</div><!-- .site-info -->
 
 		</div><!-- .footer-inner -->
