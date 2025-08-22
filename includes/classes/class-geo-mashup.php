@@ -170,7 +170,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @param string $url The URL of the custom file.
 	 * @param string $file The custom file being checked.
-	 * @param array $files The full array of custom files.
+	 * @param array  $files The full array of custom files.
 	 * @return string $url The modified URL of the custom file.
 	 */
 	public function filter_file_url( $url, $file, $files ) {
@@ -226,7 +226,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param str $where The where clause.
+	 * @param str   $where The where clause.
 	 * @param array $query_args The WordPress query arguments.
 	 * @return str $where The modified where clause.
 	 */
@@ -266,7 +266,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param str $groupby The grouping.
+	 * @param str   $groupby The grouping.
 	 * @param array $query_args The WordPress query arguments.
 	 * @return str $groupby The modified grouping.
 	 */
@@ -304,7 +304,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param str $sort The sort order.
+	 * @param str   $sort The sort order.
 	 * @param array $query_args The WordPress query arguments.
 	 * @return str $sort The modified sort order.
 	 */
@@ -344,7 +344,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $json_properties The JSON properties of the map object.
+	 * @param array   $json_properties The JSON properties of the map object.
 	 * @param WP_Post $queried_object The WordPress Post object.
 	 * @return array $json_properties The modified JSON properties of the map object.
 	 */
@@ -430,7 +430,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 * @since 1.0.0
 	 *
 	 * @param bool $show True if linking to the Post.
-	 * @param int $post_id The numeric ID of the WordPress Post.
+	 * @param int  $post_id The numeric ID of the WordPress Post.
 	 * @return bool $showTrue if linking to the Post, false to hide.
 	 */
 	public function filter_info_window_link( $show, $post_id ) {
@@ -456,7 +456,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 * @since 1.0.0
 	 *
 	 * @param array $feature_image The existing array of feature image data.
-	 * @param int $post_id The numeric ID of the WordPress Post.
+	 * @param int   $post_id The numeric ID of the WordPress Post.
 	 * @return array $feature_image The modified array of feature image data.
 	 */
 	public function filter_info_window_thumbnail( $feature_image, $post_id ) {
@@ -522,7 +522,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 * @since 1.0.0
 	 *
 	 * @param string $excerpt The existing Post excerpt for the Info Window.
-	 * @param int $post_id The numeric ID of the WordPress Post.
+	 * @param int    $post_id The numeric ID of the WordPress Post.
 	 * @return string $excerpt The modified Post excerpt for the Info Window.
 	 */
 	public function filter_info_window_excerpt( $excerpt, $post_id ) {
@@ -548,7 +548,7 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 * @since 1.0.0
 	 *
 	 * @param bool $show True if showing the "Read More" link.
-	 * @param int $post_id The numeric ID of the WordPress Post.
+	 * @param int  $post_id The numeric ID of the WordPress Post.
 	 * @return bool $show True if showing the "Read More" link, false to hide.
 	 */
 	public function filter_info_window_read_more( $show, $post_id ) {

@@ -97,7 +97,7 @@ class The_Ball_v2_2022_Theme_Shortcode_The_Ball {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param array $attr The saved Shortcode attributes.
+	 * @param array  $attr The saved Shortcode attributes.
 	 * @param string $content The enclosed content of the Shortcode.
 	 * @param string $tag The Shortcode which invoked the callback.
 	 * @return string $content The HTML-formatted Shortcode content.
