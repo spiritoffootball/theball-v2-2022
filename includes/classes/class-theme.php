@@ -77,11 +77,11 @@ class The_Ball_v2_2022_Theme {
 	 *
 	 * @since 1.0.0
 	 */
-	public function include_files() {
+	private function include_files() {
 
 		// Only do this once.
 		static $done;
-		if ( isset( $done ) && $done === true ) {
+		if ( isset( $done ) && true === $done ) {
 			return;
 		}
 
@@ -104,11 +104,11 @@ class The_Ball_v2_2022_Theme {
 	 *
 	 * @since 1.0.0
 	 */
-	public function setup_objects() {
+	private function setup_objects() {
 
 		// Only do this once.
 		static $done;
-		if ( isset( $done ) && $done === true ) {
+		if ( isset( $done ) && true === $done ) {
 			return;
 		}
 
@@ -126,7 +126,7 @@ class The_Ball_v2_2022_Theme {
 	 *
 	 * @since 1.0.0
 	 */
-	public function register_hooks() {
+	private function register_hooks() {
 
 		// Set up this theme's defaults.
 		add_action( 'after_setup_theme', [ $this, 'theme_setup' ] );
