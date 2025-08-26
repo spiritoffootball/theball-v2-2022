@@ -54,13 +54,15 @@ class The_Ball_v2_2022_Theme {
 	 */
 	public function initialise() {
 
-		// Include files.
+		// Only do this once.
+		static $done;
+		if ( isset( $done ) && true === $done ) {
+			return;
+		}
+
+		// Bootstrap object.
 		$this->include_files();
-
-		// Set up objects and references.
 		$this->setup_objects();
-
-		// Register hooks.
 		$this->register_hooks();
 
 		/**
@@ -69,6 +71,9 @@ class The_Ball_v2_2022_Theme {
 		 * @since 1.0.0
 		 */
 		do_action( 'the_ball_v2_2022/theme/loaded' );
+
+		// We're done.
+		$done = true;
 
 	}
 
@@ -79,12 +84,6 @@ class The_Ball_v2_2022_Theme {
 	 */
 	private function include_files() {
 
-		// Only do this once.
-		static $done;
-		if ( isset( $done ) && true === $done ) {
-			return;
-		}
-
 		// Include class files.
 		include get_stylesheet_directory() . '/includes/classes/class-geo-mashup.php';
 		include get_stylesheet_directory() . '/includes/classes/class-shortcode-the-ball.php';
@@ -93,9 +92,6 @@ class The_Ball_v2_2022_Theme {
 		// Include functions files.
 		include get_stylesheet_directory() . '/includes/functions-theme.php';
 		*/
-
-		// We're done.
-		$done = true;
 
 	}
 
@@ -106,18 +102,9 @@ class The_Ball_v2_2022_Theme {
 	 */
 	private function setup_objects() {
 
-		// Only do this once.
-		static $done;
-		if ( isset( $done ) && true === $done ) {
-			return;
-		}
-
 		// Instantiate classes.
 		$this->geo_mashup         = new The_Ball_v2_2022_Geo_Mashup( $this );
 		$this->shortcode_the_ball = new The_Ball_v2_2022_Theme_Shortcode_The_Ball( $this );
-
-		// We're done.
-		$done = true;
 
 	}
 
