@@ -85,12 +85,12 @@ class The_Ball_v2_2022_Theme {
 	private function include_files() {
 
 		// Include class files.
-		include get_stylesheet_directory() . '/includes/classes/class-geo-mashup.php';
-		include get_stylesheet_directory() . '/includes/classes/class-shortcode-the-ball.php';
+		require get_stylesheet_directory() . '/includes/classes/class-geo-mashup.php';
+		require get_stylesheet_directory() . '/includes/classes/class-shortcode-the-ball.php';
 
 		/*
 		// Include functions files.
-		include get_stylesheet_directory() . '/includes/functions-theme.php';
+		require get_stylesheet_directory() . '/includes/functions-theme.php';
 		*/
 
 	}
