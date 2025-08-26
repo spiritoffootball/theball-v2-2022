@@ -5,14 +5,16 @@
  * Description:       A child theme of The Ball v2 for The Ball 2022.
  * Version:           1.0.0
  * Theme URI:         https://github.com/spiritoffootball/theball-v2-2022
- * Template:          theball-v2
  * Author:            Christian Wach
  * Author URI:        https://www.haystack.co.uk
  * Requires at least: 5.0
  * Tested up to:      6.8
  * Requires PHP:      7.4
+ * Text Domain:       the-ball-v2-2022
+ * Domain Path:       /languages
  * License:           GNU General Public License v2 or later
  * License URI:       https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * Template:          theball-v2
  *
  * @package The_Ball_v2_2022
  */
