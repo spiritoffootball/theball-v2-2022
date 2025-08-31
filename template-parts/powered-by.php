@@ -56,6 +56,9 @@ if ( $partners->have_posts() ) :
 
 	<?php
 
+	// Prevent weirdness.
+	wp_reset_postdata();
+
 else :
 
 	get_template_part( 'template-parts/content', 'coming-soon' );
