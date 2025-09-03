@@ -14,54 +14,52 @@ global $sof_the_ball_event;
 $sof_the_ball_event = false;
 
 // Define query args.
-$the_ball_event_args = [
-	'post_type'     => 'event',
-	'post_status'   => 'publish',
-	'no_found_rows' => true,
-	'post__in'      => [ 1014 ],
+$loop_include_args = [
+	'post_type'          => 'event',
+	'post_status'        => 'publish',
+	'no_found_rows'      => true,
+	'suppress_filters'   => false,
+	'showpastevents'     => true,
+	'event_start_before' => 'today',
+	'event_end_before'   => 'now',
+	'post__in'           => [ 1014 ], // This will be overridden in child themes.
 ];
 
 // The query.
-$the_ball_event = new WP_Query( $the_ball_event_args );
+$loop_include = new WP_Query( $loop_include_args );
 
-if ( $the_ball_event->have_posts() ) :
+if ( $loop_include->have_posts() ) :
 
 	$sof_the_ball_event = true;
 
 	?>
 
 	<!-- loop-events-the-ball.php -->
-	<section id="event-the-ball" class="content-area insert-area event-the-ball clear">
+	<section id="event-the-ball" class="loop-include loop-include-one content-area clear">
+		<div class="loop-include-inner">
 
-		<header class="events-header">
-			<!--<h2 class="events-title"><?php esc_html_e( 'Make your pledge with The Ball', 'the-ball-v2-2022' ); ?></h2>-->
-		</header><!-- .events-header -->
+			<header class="loop-include-header">
+				<h2 class="loop-include-title"><?php esc_html_e( 'Make your pledge with The Ball', 'the-ball-v2' ); ?></h2>
+			</header><!-- .loop-include-header -->
 
-		<?php
+			<div class="loop-include-posts">
+				<?php
 
-		// Init counter for giving items classes.
-		$post_loop_counter = new The_Ball_v2_Counter();
+				// Start the loop.
+				while ( $loop_include->have_posts() ) :
 
-		// Start the loop.
-		while ( $the_ball_event->have_posts() ) :
+					$loop_include->the_post();
 
-			$the_ball_event->the_post();
+					// Get mini template.
+					get_template_part( 'template-parts/content-event-the-ball' );
 
-			// Get mini template.
-			get_template_part( 'template-parts/content-event-the-ball' );
+				endwhile;
 
-		endwhile;
+				?>
+			</div><!-- .loop-include-posts -->
 
-		// Ditch counter.
-		$post_loop_counter->remove_filter();
-		unset( $post_loop_counter );
-
-		?>
-
-		<footer class="loop-insert-footer events-footer">
-		</footer><!-- .events-footer -->
-
-	</section><!-- #events -->
+		</div><!-- .loop-include-inner -->
+	</section><!-- .loop-include -->
 
 	<?php
 
@@ -69,3 +67,4 @@ endif;
 
 // Prevent weirdness.
 wp_reset_postdata();
+unset( $loop_include_args, $loop_include );

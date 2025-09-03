@@ -82,7 +82,7 @@ defined( 'ABSPATH' ) || exit;
 
 			</div><!-- /sof_network_white -->
 
-			<?php $powered_by_loop = locate_template( 'template-parts/powered-by.php' ); ?>
+			<?php $powered_by_loop = locate_template( 'template-parts/loop-footer-powered-by.php' ); ?>
 			<?php if ( $powered_by_loop ) : ?>
 				<?php load_template( $powered_by_loop ); ?>
 			<?php endif; ?>
