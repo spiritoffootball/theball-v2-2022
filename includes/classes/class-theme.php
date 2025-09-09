@@ -132,7 +132,7 @@ class The_Ball_v2_2022_Theme {
 		 * Translations can be added to the /languages/ directory of the child theme.
 		 */
 		load_child_theme_textdomain(
-			'the-ball-v2-2022',
+			'theball-v2-2022',
 			get_stylesheet_directory() . '/languages'
 		);
 

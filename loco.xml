@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<bundle name="The Ball v2 2022 Child Theme">
+	<domain name="theball-v2-2022">
+		<project name="The Ball v2 2022 Child Theme" slug="theball-v2-2022">
+			<source>
+				<directory>.</directory>
+			</source>
+			<target>
+				<directory>languages</directory>
+			</target>
+			<template>
+				<file>languages/theball-v2-2022.pot</file>
+			</template>
+		</project>
+	</domain>
+	<domain name="theball-v2">
+		<project name="The Ball v2" slug="theball-v2">
+			<source>
+				<directory base="WP_CONTENT_DIR">themes/theball-v2</directory>
+			</source>
+			<target>
+				<directory base="WP_CONTENT_DIR">themes/theball-v2/languages</directory>
+			</target>
+			<template>
+				<file base="WP_CONTENT_DIR">themes/theball-v2/languages/theball-v2.pot</file>
+			</template>
+		</project>
+	</domain>
+</bundle>

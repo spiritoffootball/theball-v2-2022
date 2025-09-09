@@ -39,7 +39,7 @@ if ( $loop_include->have_posts() ) :
 		<div class="loop-include-inner">
 
 			<header class="loop-include-header">
-				<h2 class="loop-include-title"><?php esc_html_e( 'Make your pledge with The Ball', 'the-ball-v2' ); ?></h2>
+				<h2 class="loop-include-title"><?php esc_html_e( 'Make your pledge with The Ball', 'theball-v2-2022' ); ?></h2>
 			</header><!-- .loop-include-header -->
 
 			<div class="loop-include-posts">

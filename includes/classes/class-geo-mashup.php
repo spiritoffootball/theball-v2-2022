@@ -548,9 +548,9 @@ class The_Ball_v2_2022_Geo_Mashup {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param bool $show True if showing the "Read More" link.
+	 * @param bool $show True if showing the "Read more" link.
 	 * @param int  $post_id The numeric ID of the WordPress Post.
-	 * @return bool $show True if showing the "Read More" link, false to hide.
+	 * @return bool $show True if showing the "Read more" link, false to hide.
 	 */
 	public function filter_info_window_read_more( $show, $post_id ) {
 

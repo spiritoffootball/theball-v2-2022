@@ -106,7 +106,7 @@ class The_Ball_v2_2022_Theme_Shortcode_The_Ball {
 
 		// Return something else for feeds.
 		if ( is_feed() ) {
-			return '<p>' . __( 'Visit the website to see the Event.', 'the-ball-v2-2022' ) . '</p>';
+			return '<p>' . __( 'Visit the website to see the Event.', 'theball-v2-2022' ) . '</p>';
 		}
 
 		// Find the template.

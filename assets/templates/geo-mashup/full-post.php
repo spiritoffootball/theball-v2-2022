@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 
 <?php else : ?>
 
-	<h2 class="center"><?php esc_html_e( 'Not Found', 'the-ball-v2-2022' ); ?></h2>
-	<p class="center"><?php esc_html_e( 'Sorry, but you are looking for something that isn’t here.', 'the-ball-v2-2022' ); ?></p>
+	<h2 class="center"><?php esc_html_e( 'Not Found', 'theball-v2-2022' ); ?></h2>
+	<p class="center"><?php esc_html_e( 'Sorry, but you are looking for something that isn’t here.', 'theball-v2-2022' ); ?></p>
 
 <?php endif; ?>

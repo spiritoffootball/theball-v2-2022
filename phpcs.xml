@@ -31,7 +31,7 @@
 
 	<rule ref="WordPress.WP.I18n">
 		<properties>
-			<property name="text_domain" type="array" value="the-ball-v2-2022" />
+			<property name="text_domain" type="array" value="theball-v2-2022" />
 		</properties>
 	</rule>
 

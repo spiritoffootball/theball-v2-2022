@@ -76,11 +76,11 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 			$show_link = apply_filters( 'the_ball_v2_2022/info_window/link', true, get_the_ID() );
 
 			/**
-			 * Filters the "Read More" link.
+			 * Filters the "Read more" link.
 			 *
 			 * @since 1.0
 			 *
-			 * @param bool $show True if showing the "Read More" link.
+			 * @param bool $show True if showing the "Read more" link.
 			 * @param int $post_id The numeric ID of the WordPress Post.
 			 */
 			$more_link = apply_filters( 'the_ball_v2_2022/info_window/more_link', true, get_the_ID() );
@@ -152,7 +152,7 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 							?>
 							</p>
 							<?php if ( true === $more_link ) : ?>
-								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link"><?php esc_html_e( 'Read more', 'the-ball-v2-2022' ); ?></a>
+								<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="more-link"><?php esc_html_e( 'Read more', 'theball-v2-2022' ); ?></a>
 							<?php endif; ?>
 						</div>
 				<?php endif; ?>
@@ -163,8 +163,8 @@ add_filter( 'the_excerpt', [ 'GeoMashupQuery', 'strip_brackets' ] );
 
 	<?php else : ?>
 
-		<h2 class="center"><?php esc_html_e( 'Not Found', 'the-ball-v2-2022' ); ?></h2>
-		<p class="center"><?php esc_html_e( 'Sorry, but we can’t find what you are looking for.', 'the-ball-v2-2022' ); ?></p>
+		<h2 class="center"><?php esc_html_e( 'Not Found', 'theball-v2-2022' ); ?></h2>
+		<p class="center"><?php esc_html_e( 'Sorry, but we can’t find what you are looking for.', 'theball-v2-2022' ); ?></p>
 
 	<?php endif; ?>
 
