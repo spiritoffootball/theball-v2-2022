@@ -66,21 +66,9 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			<?php endif; ?>
 
-			<div class="sof_network network_white clearfix">
-
-				<div class="network_inner clearfix">
-
-					<h3><?php esc_html_e( 'The SOF Network', 'theball-v2-2022' ); ?></h3>
-
-					<ul>
-						<li class="brazil_icon"><a href="https://br.spiritoffootball.com/" title="<?php esc_attr_e( 'Spirit of Football Brazil', 'theball-v2-2022' ); ?>"><?php esc_html_e( 'Spirit of Football Brazil', 'theball-v2-2022' ); ?></a></li>
-						<li class="cic_icon"><a href="https://spiritoffootball.com/" title="<?php esc_attr_e( 'Spirit of Football CIC', 'theball-v2-2022' ); ?>"><?php esc_html_e( 'Spirit of Football CIC', 'theball-v2-2022' ); ?></a></li>
-						<li class="sof_network_last germany_icon"><a href="https://spirit-of-football.de/" title="<?php esc_attr_e( 'Spirit of Football Germany', 'theball-v2-2022' ); ?>"><?php esc_html_e( 'Spirit of Football Germany', 'theball-v2-2022' ); ?></a></li>
-					</ul>
-
-				</div><!-- /network_inner -->
-
-			</div><!-- /sof_network_white -->
+			<?php if ( $sof_network = locate_template( 'template-parts/footer-sof-network.php' ) ) : ?>
+				<?php load_template( $sof_network ); ?>
+			<?php endif; ?>
 
 			<?php $powered_by_loop = locate_template( 'template-parts/loop-footer-powered-by.php' ); ?>
 			<?php if ( $powered_by_loop ) : ?>
