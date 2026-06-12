@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package The_Ball_v2
+ * @package The_Ball_v2_2022
  */
 
 // Exit if accessed directly.
